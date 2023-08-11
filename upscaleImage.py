@@ -28,6 +28,8 @@ if __name__ == "__main__":
         path = os.path.join(modelsPath, "FSRCNN_x2.pb")
         sr.readModel(path)
         sr.setModel("fsrcnn", 2)
+        sr.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
+        sr.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
     except:
         print("Failed to load super resolution model")
 
