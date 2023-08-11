@@ -25,11 +25,11 @@ if __name__ == "__main__":
         sr = dnn_superres.DnnSuperResImpl_create()
         #print("Current working dir", os.getcwd())
         modelsPath = os.path.join(os.getcwd(), "models")
-        path = os.path.join(modelsPath, "FSRCNN_x2.pb")
+        path = os.path.join(modelsPath, "EDSR_x4.pb")
         sr.readModel(path)
-        sr.setModel("fsrcnn", 2)
-        sr.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
-        sr.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
+        sr.setModel("edsr", 4)
+        #sr.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
+        #sr.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
     except:
         print("Failed to load super resolution model")
 
